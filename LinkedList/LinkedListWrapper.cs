@@ -6,6 +6,8 @@ namespace DataStructures.LinkedList
     public class LinkedListWrapper<T>
     {
         private Node<T> head;
+        private Node<T> tempNode;
+
         public int Count { get; private set; }
 
         public LinkedListWrapper()
@@ -31,26 +33,15 @@ namespace DataStructures.LinkedList
         {
             if (head is not null)
             {
-                Node<T> newNode = new Node<T>(data,head.next);
-                head.next = newNode;
-                Count++;
-            }
-        }
-
-        public void PrintList()
-        {
-            Node<T> runner = head;
-            while (runner != null)
-            {
-                if (runner.value is Employee)
+                tempNode = head;
+                while(tempNode.next != null)
                 {
-                    var currentValue = runner.value.GetType();
-                    var propValue = currentValue.GetProperty("FirstName");
-                    Console.WriteLine(currentValue.GetProperty("FirstName"));
+                    tempNode = tempNode.next;
                 }
 
-
-                runner = runner.next;
+                Node<T> newNode = new Node<T>(data);
+                tempNode.next = newNode;
+                Count++;
             }
         }
     }

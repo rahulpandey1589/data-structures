@@ -32,9 +32,10 @@ namespace DataStructures
                 new LinkedListWrapper<Employee>();
 
             empLinkedList.AddFront(e1);
-            empLinkedList.AddFront(e2);
+            empLinkedList.AddLast(e2);
+            empLinkedList.AddLast(e3);
 
-            empLinkedList.PrintList();
+            empLinkedList.AddFront(e4);
 
 
             Console.WriteLine($"The current item counts is {empLinkedList.Count}");
