@@ -19,7 +19,26 @@ namespace DataStructures
 
         #region Singly Linked List Code
 
-         public void AddLinkedListNode()
+        public void AddInteger()
+        {
+            LinkedListWrapper<int> empLinkedList = new LinkedListWrapper<int>();
+            empLinkedList.AddHead(1);
+            empLinkedList.AddToLast(2);
+
+            empLinkedList.Print();
+            Console.WriteLine("-----------------------------");
+            empLinkedList.AddAtAfter(empLinkedList.head.next,4);
+
+            empLinkedList.Print();
+
+        }
+
+
+
+
+
+
+        public void AddLinkedListNode()
         {
             var e1 = GetEmployee("Jane", "Whitely", "Male");
             var e2 = GetEmployee("Sarah", "Atkinson", "Female");
@@ -28,14 +47,19 @@ namespace DataStructures
 
 
 
-            LinkedListWrapper<Employee> empLinkedList=
+            LinkedListWrapper<Employee> empLinkedList =
                 new LinkedListWrapper<Employee>();
 
-            empLinkedList.AddFront(e1);
-            empLinkedList.AddLast(e2);
-            empLinkedList.AddLast(e3);
+            empLinkedList.AddHead(e1);
+            empLinkedList.AddToLast(e2);
+            empLinkedList.AddToLast(e3);
 
-            empLinkedList.AddFront(e4);
+            var find = empLinkedList.Find(e2);
+
+            empLinkedList.AddAtAfter(find, e4);
+
+
+            empLinkedList.Delete(find);
 
 
             Console.WriteLine($"The current item counts is {empLinkedList.Count}");
@@ -46,7 +70,7 @@ namespace DataStructures
             string lastName,
             string gender)
         {
-            return new Employee(firstName,lastName,gender);
+            return new Employee(firstName, lastName, gender);
         }
 
         #endregion

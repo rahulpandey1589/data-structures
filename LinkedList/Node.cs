@@ -1,6 +1,6 @@
 ﻿namespace DataStructures.LinkedList
 {
-    class Node<TNode>
+    public class Node<TNode>
     {  
         internal TNode value;
         internal Node<TNode> next;
